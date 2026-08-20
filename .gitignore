@@ -1,0 +1,14 @@
+# Arquivos de sistema do macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+*~
+
+# Logs
+*.log

@@ -1,0 +1,449 @@
+[
+  {
+    "id": "abordagem-policial",
+    "data": "28/10/2025",
+    "tipo": "Cartilha",
+    "titulo": "Abordagem Policial: O que você precisa saber e como agir?",
+    "nucleo": "NEIJ, NCDH, NUPIR",
+    "tema": "direitos-humanos",
+    "tags": [
+      "direitos humanos",
+      "abordagem policial",
+      "violência policial",
+      "abordagem",
+      "juventude"
+    ],
+    "capa": "imgs/capa_cartilha_abordagemPolicial_28out25.jpg",
+    "arquivo": "arquivos/cartilha_abordagemPolicial_28out25.pdf"
+  },
+  {
+    "id": "bens-imoveis-mulheres",
+    "data": "01/10/2025",
+    "tipo": "Cartilha",
+    "titulo": "Direitos das mulheres à posse e propriedade de bens imóveis",
+    "nucleo": "NUDEM, NEHABURB",
+    "tema": "habitacao",
+    "tags": [
+      "casa",
+      "bens imóveis",
+      "mulheres",
+      "direitos das mulheres",
+      "habitação",
+      "posse",
+      "propriedade"
+    ],
+    "capa": "imgs/capa_cartilha_bensImoveis_01out25.jpg",
+    "arquivo": "arquivos/cartilha_bensImoveis_01out25.pdf"
+  },
+  {
+    "id": "educacao-escolar-quilombola",
+    "data": "13/02/2025",
+    "tipo": "Cartilha",
+    "titulo": "Educação Escolar Quilombola - Resolução nº 8/2012 do Conselho Nacional de Educação: Diretrizes Curriculares Nacionais para a Educação Escolar Quilombola",
+    "nucleo": "NUPIR",
+    "tema": "infancia",
+    "tags": [
+      "educação",
+      "educação quilombola",
+      "conselho nacional de educação",
+      "infância"
+    ],
+    "capa": "imgs/capa_cartilha_educacaoQuilombola13fev25.jpg",
+    "arquivo": "arquivos/cartilha_educacaoQuilombola13fev25.pdf"
+  },
+  {
+    "id": "guia-rapido-direitos-das-mulheres",
+    "data": "26/02/2025",
+    "tipo": "Cartilha",
+    "titulo": "Guia Rápido - Direitos das Mulheres - Estado de São Paulo",
+    "nucleo": "NUDEM",
+    "tema": "mulheres",
+    "tags": [
+      "mulheres",
+      "direitos das mulheres",
+      "guia",
+      "violência",
+      "aborto legal",
+      "violência doméstica",
+      "violência familiar",
+      "violência sexual",
+      "violência obstétrica"
+    ],
+    "capa": "imgs/capa_cartilha_guiaRapidoMulheres_26fev25.jpg",
+    "arquivo": "arquivos/cartilha_guiaRapidoMulheres_26fev25.pdf"
+  },
+  {
+    "id": "discriminacao-lgbtqiapn",
+    "data": "02/12/2025",
+    "tipo": "Cartilha",
+    "titulo": "Discriminação LGBTQIAPN+",
+    "nucleo": "NUDIVERSIS",
+    "tema": "mulheres",
+    "tags": [
+      "discriminação",
+      "lgbtqiapn+",
+      "violência",
+      "homofobia"
+    ],
+    "capa": "imgs/capa_cartilha_LGBTQ_02dez25.jpg",
+    "arquivo": "arquivos/cartilha_LGBTQ_02dez25.pdf"
+  },
+  {
+    "id": "lei-maria-da-penha",
+    "data": "11/09/2025",
+    "tipo": "Cartilha",
+    "titulo": "Lei Maria da Penha - Sua vida começa quando a violência termina. Estímulo à aplicação da Lei nº 11.340/2006",
+    "nucleo": "NUDEM",
+    "tema": "mulheres",
+    "tags": [
+      "direitos das mulheres",
+      "lei maria da penha",
+      "violência doméstica",
+      "medidas protetivas",
+      "casa abrigo"
+    ],
+    "capa": "imgs/capa_cartilha_mariaPenha_11set2025jpg.jpg",
+    "arquivo": "arquivos/cartilha_mariaPenha_11set2025.pdf"
+  },
+  {
+    "id": "quesito-raca-cor",
+    "data": "18/03/2026",
+    "tipo": "Cartilha",
+    "titulo": "Quesito Raça/Cor",
+    "nucleo": "NUPIR",
+    "tema": "habitacao",
+    "tags": [
+      "raça",
+      "cor",
+      "quesito",
+      "desigualdade racial",
+      "racismo",
+      "tratamento de dados"
+    ],
+    "capa": "imgs/capa_cartilha_racaCor18mar26.jpg",
+    "arquivo": "arquivos/cartilha_racaCor18mar26.pdf"
+  },
+  {
+    "id": "meu-nome-meu-direito",
+    "data": "22/01/2026",
+    "tipo": "Cartilha",
+    "titulo": "Meu nome, meu direito - Guia de Retificação de Registro Civil",
+    "nucleo": "NUDIVERSIS",
+    "tema": "mulheres",
+    "tags": [
+      "registro civil",
+      "mudança de nome",
+      "cartório",
+      "gênero",
+      "nome",
+      "retificação"
+    ],
+    "capa": "imgs/capa_cartilha_retificaNome22jan26.jpg",
+    "arquivo": "arquivos/cartilha_retificaNome22jan26.pdf"
+  },
+  {
+    "id": "saude-mulheres-negras",
+    "data": "11/02/2025",
+    "tipo": "Cartilha",
+    "titulo": "Vamos falar sobre a saúde das mulheres negras? Mulheres negras, acesso à saúde e racismo. Cartilha voltada para mulheres negras e população em geral",
+    "nucleo": "NUPIR, NUDEM",
+    "tema": "mulheres",
+    "tags": [
+      "direitos das mulheres",
+      "saúde",
+      "racismo institucional",
+      "mulher negra",
+      "violência obstétrica",
+      "quilombola",
+      "preconceito",
+      "população"
+    ],
+    "capa": "imgs/capa_cartilha_saudeMulheresNegras_11fev25.jpg",
+    "arquivo": "arquivos/cartilha_saudeMulheresNegras_11fev25.pdf"
+  },
+  {
+    "id": "saude-racismo-profissionais",
+    "data": "11/02/2025",
+    "tipo": "Cartilha",
+    "titulo": "Mulheres negras, acesso à saúde e racismo - Cartilha voltada para profissionais de saúde",
+    "nucleo": "NUPIR, NUDEM",
+    "tema": "mulheres",
+    "tags": [
+      "direitos das mulheres",
+      "saúde",
+      "racismo institucional",
+      "mulher negra",
+      "violência obstétrica",
+      "quilombola",
+      "preconceito",
+      "profissionais de saúde"
+    ],
+    "capa": "imgs/capa_cartilha_saudeMulheresRacismo_11fev25.jpg",
+    "arquivo": "arquivos/cartilha_saudeMulheresRacismo_11fev25.pdf"
+  },
+  {
+    "id": "uso-abusivo-drogas",
+    "data": "30/03/2026",
+    "tipo": "Cartilha",
+    "titulo": "Uso abusivo de álcool e outras drogas: O que fazer?",
+    "nucleo": "NCDH",
+    "tema": "direitos-humanos",
+    "tags": [
+      "drogas",
+      "álcool",
+      "uso abusivo",
+      "remédio",
+      "tratamento"
+    ],
+    "capa": "imgs/capa_cartilha_usoDrogas_30mar26.jpg",
+    "arquivo": "arquivos/cartilha_usoDrogas_30mar26.pdf"
+  },
+  {
+    "id": "calendario-direitos-humanos-2026",
+    "data": "10/04/2026",
+    "tipo": "Cartilha",
+    "titulo": "Calendário de Direitos Humanos 2026",
+    "nucleo": "CAM",
+    "tema": "direitos-humanos",
+    "tags": [
+      "datas",
+      "direitos humanos",
+      "calendário",
+      "2026"
+    ],
+    "capa": "imgs/capa_cartilhaA5_calendarioDH_10abr.jpg",
+    "arquivo": "arquivos/cartilhaA5_calendarioDH_10abr.pdf"
+  },
+  {
+    "id": "bullying-cyberbullying",
+    "data": "28/08/2025",
+    "tipo": "Folder",
+    "titulo": "Bullying e Cyberbullying são crimes!",
+    "nucleo": "",
+    "tema": "infancia",
+    "tags": [
+      "bullying",
+      "cyberbullying",
+      "escolas",
+      "cultura de paz"
+    ],
+    "capa": "imgs/capa_folder_bullying_28ago25.png",
+    "arquivo": "arquivos/folder_bullying_28ago25.pdf"
+  },
+  {
+    "id": "chega-de-assedio",
+    "data": "05/02/2025",
+    "tipo": "Folder",
+    "titulo": "Chega de assédio",
+    "nucleo": "NUDEM",
+    "tema": "mulheres",
+    "tags": [
+      "assédio",
+      "direitos das mulheres",
+      "estupro",
+      "violência sexual",
+      "consentimento",
+      "importunação"
+    ],
+    "capa": "imgs/capa_folder_chegaAssedio05fev25.png",
+    "arquivo": "arquivos/folder_chegaAssedio05fev25.pdf"
+  },
+  {
+    "id": "combate-discriminacao-racial",
+    "data": "27/04/2026",
+    "tipo": "Folder",
+    "titulo": "Combate à discriminação racial",
+    "nucleo": "NUPIR",
+    "tema": "habitacao",
+    "tags": [
+      "discriminação racial",
+      "discriminação",
+      "preconceito",
+      "racismo",
+      "racismo institucional"
+    ],
+    "capa": "imgs/capa_folder_combateDiscriminacaoRacial_27abr26.png",
+    "arquivo": "arquivos/folder_combateDiscriminacaoRacial_27abr26.pdf"
+  },
+  {
+    "id": "cuidado-e-golpe",
+    "data": "06/02/2026",
+    "tipo": "Folder",
+    "titulo": "Cuidado! É golpe! Campanha de informação e prevenção contra fraudes em empréstimos e outros serviços bancários",
+    "nucleo": "NUDECON",
+    "tema": "consumidor",
+    "tags": [
+      "fraude",
+      "empréstimo",
+      "serviços bancários",
+      "golpe",
+      "boleto falso",
+      "consórcio",
+      "leilão"
+    ],
+    "capa": "imgs/capa_folder_cuidadoGolpe_6fev26.png",
+    "arquivo": "arquivos/folder_cuidadoGolpe_6fev26.pdf"
+  },
+  {
+    "id": "liberdade-religiosa",
+    "data": "05/02/2025",
+    "tipo": "Folder",
+    "titulo": "Liberdade religiosa",
+    "nucleo": "NUPIR",
+    "tema": "habitacao",
+    "tags": [
+      "liberdade religiosa",
+      "religião",
+      "discriminação",
+      "preconceito"
+    ],
+    "capa": "imgs/capa_folder_liberdadeReligiosa05fev25.png",
+    "arquivo": "arquivos/folder_liberdadeReligiosa05fev25.pdf"
+  },
+  {
+    "id": "medida-protetiva",
+    "data": "20/07/2026",
+    "tipo": "Folder",
+    "titulo": "Recebi uma medida protetiva, e agora?",
+    "nucleo": "NESC",
+    "tema": "mulheres",
+    "tags": [
+      "medida protetiva",
+      "MPU",
+      "medida protetiva de urgência"
+    ],
+    "capa": "imgs/capa_folder_mpu_20jul26.png",
+    "arquivo": "arquivos/folder_mpu_20jul26.pdf"
+  },
+  {
+    "id": "mulher-negra-saude-folder",
+    "data": "14/02/2025",
+    "tipo": "Folder",
+    "titulo": "Direito da mulher negra à saúde",
+    "nucleo": "NUDEM, NUPIR",
+    "tema": "mulheres",
+    "tags": [
+      "racismo institucional",
+      "mulher negra",
+      "saúde",
+      "doenças"
+    ],
+    "capa": "imgs/capa_folder_mulherNegraSaude14fev25.png",
+    "arquivo": "arquivos/folder_mulherNegraSaude14fev25.pdf"
+  },
+  {
+    "id": "folder-nupir",
+    "data": "07/02/2025",
+    "tipo": "Folder",
+    "titulo": "Núcleo Especializado de Promoção da Igualdade Racial e de Defesa dos Povos e Comunidades Tradicionais (NUPIR)",
+    "nucleo": "NUPIR",
+    "tema": "habitacao",
+    "tags": [
+      "discriminação",
+      "sociedade plural",
+      "igualdade",
+      "preconceito"
+    ],
+    "capa": "imgs/capa_folder_nupir_7fev25.png",
+    "arquivo": "arquivos/folder_nupir_7fev25.pdf"
+  },
+  {
+    "id": "programa-pode-entrar",
+    "data": "30/01/2025",
+    "tipo": "Folder",
+    "titulo": "Programa Pode Entrar: Direito das mulheres à posse e propriedade de bens imóveis",
+    "nucleo": "NUDEM, NEHABURB",
+    "tema": "habitacao",
+    "tags": [
+      "programa pode entrar",
+      "bens imóveis",
+      "casa",
+      "propriedade",
+      "direito das mulheres",
+      "posse",
+      "violência doméstica"
+    ],
+    "capa": "imgs/capa_folder_podeEntrar_bensImoveis30jan25.png",
+    "arquivo": "arquivos/folder_podeEntrar_bensImoveis30jan25.pdf"
+  },
+  {
+    "id": "carta-nacional-principios",
+    "data": "10/09/2025",
+    "tipo": "Revista",
+    "titulo": "Acesso à Justiça na Perspectiva Interseccional de Gênero e Raça. Carta Nacional de Princípios",
+    "nucleo": "NUDEM, Ouvidoria",
+    "tema": "mulheres",
+    "tags": [
+      "acesso à justiça",
+      "gênero",
+      "raça",
+      "carta",
+      "princípios",
+      "direitos das mulheres",
+      "participação social"
+    ],
+    "capa": "imgs/capa_revistaA4_cartaNacionalPrincipios_10set25.jpg",
+    "arquivo": "arquivos/revistaA4_cartaNacionalPrincipios_10set25.pdf"
+  },
+  {
+    "id": "destituicao-poder-familiar",
+    "data": "15/07/2026",
+    "tipo": "Revista",
+    "titulo": "Acesso à Justiça e Destituição do Poder Familiar. Um olhar para a atuação da DPE/SP em segunda instância",
+    "nucleo": "NEIJ, NSITS",
+    "tema": "infancia",
+    "tags": [
+      "acesso à justiça",
+      "poder familiar",
+      "destituição",
+      "segunda instância",
+      "infância",
+      "políticas públicas",
+      "participação social"
+    ],
+    "capa": "imgs/capa_revistaA4_poderFamiliar_15jul26.jpg",
+    "arquivo": "arquivos/revistaA4_poderFamiliar_15jul26.pdf"
+  },
+  {
+    "id": "jovens-defensores-populares",
+    "data": "18/09/2024",
+    "tipo": "Material de apoio",
+    "titulo": "Educação em Direitos de jovens defensores e defensoras populares na Fundação Casa",
+    "nucleo": "NEIJ",
+    "tema": "infancia",
+    "tags": [
+      "eca",
+      "infância",
+      "juventude",
+      "fundação casa",
+      "defensores populares",
+      "racismo",
+      "gênero",
+      "sexualidade",
+      "corpo",
+      "liberdade"
+    ],
+    "capa": "imgs/capa_jovens_defensores_18set24.jpg",
+    "arquivo": "arquivos/jovens_defensores_18set24.zip"
+  },
+  {
+    "id": "defensoras-populares",
+    "data": "13/07/2023",
+    "tipo": "Material de apoio",
+    "titulo": "Curso de formação de defensoras populares pela igualdade",
+    "nucleo": "Ouvidoria, NUDEM",
+    "tema": "mulheres",
+    "tags": [
+      "direitos das mulheres",
+      "igualdade",
+      "defensoras populares",
+      "curso",
+      "participação política",
+      "violência",
+      "racismo",
+      "machismo"
+    ],
+    "capa": "imgs/capa_revistaA4_defensorasPopulares_13jul23.jpg",
+    "arquivo": "arquivos/revistaA4_defensorasPopulares_13jul23.pdf"
+  }
+]

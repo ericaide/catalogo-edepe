@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Catálogo de Publicações - EDEPE</title>
+
+    <!-- Tailwind CDN with Forms and Container Queries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config Stitch Design Tokens -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#f7f9fb",
+                        "outline": "#76777d",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#131b2e",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-surface-variant": "#45464d",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-container": "#fefcff",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-primary-container": "#7c839b",
+                        "on-secondary-fixed-variant": "#004395",
+                        "primary-fixed": "#dae2fd",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#fcdeb5",
+                        "secondary-container": "#2170e4",
+                        "secondary": "#0058be",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "outline-variant": "#c6c6cd",
+                        "on-secondary-fixed": "#001a42",
+                        "primary": "#000000",
+                        "primary-container": "#131b2e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-primary": "#bec6e0",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "on-tertiary-container": "#98805d",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-container": "#271901",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#271901",
+                        "on-tertiary": "#ffffff",
+                        "theme-mulheres": "#a7529a",
+                        "theme-habitacao": "#804e20",
+                        "theme-direitos": "#3ca4bd",
+                        "theme-infancia": "#f2b630",
+                        "theme-idoso": "#2a3289",
+                        "theme-consumidor": "#dd7129"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1440px",
+                        "base": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "sidebar-width": "290px",
+                        "margin-mobile": "16px"
+                    },
+                    fontFamily: {
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "title-md": ["\"Source Serif 4\"", "Georgia", "serif"],
+                        "headline-lg": ["\"Source Serif 4\"", "Georgia", "serif"],
+                        "display-title": ["\"Source Serif 4\"", "Georgia", "serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-secondary/20 selection:text-secondary">
+
+    <!-- Header Hero Banner com Compilado de Capas no Background -->
+    <header class="relative overflow-hidden bg-slate-950 text-white border-b border-outline-variant shadow-md">
+        <!-- Compilado / Grid de Capas no Background -->
+        <div id="headerCollage" class="absolute inset-0 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 opacity-75 sm:opacity-85 scale-105 pointer-events-none select-none -rotate-1 transform overflow-hidden" aria-hidden="true">
+            <!-- Gerado dinamicamente via JS a partir de dados.json -->
+        </div>
+
+        <!-- Camada de Gradiente: Escuro e protetor à esquerda (onde está o texto) e suave/translúcido à direita -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 via-45% to-slate-950/20 backdrop-blur-[0.5px]"></div>
+
+        <!-- Conteúdo do Header -->
+        <div class="relative z-10 max-w-container-max mx-auto px-4 sm:px-8 py-8 sm:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="max-w-2xl drop-shadow-sm">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-secondary/50 text-blue-200 text-xs font-semibold uppercase tracking-wider mb-3 backdrop-blur-md shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Escola da Defensoria Pública de SP</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-extrabold font-headline-lg text-white tracking-tight leading-tight drop-shadow-md">
+                    Catálogo de Publicações EDEPE
+                </h1>
+                <p class="text-sm sm:text-base text-slate-200 mt-2 font-normal leading-relaxed drop-shadow-sm">
+                    Acesso interativo a cartilhas, folders, revistas e materiais educativos produzidos pela Defensoria Pública do Estado de São Paulo.
+                </p>
+            </div>
+
+            <!-- Estatísticas e Badges Informativos -->
+            <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap">
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg">
+                    <div class="w-10 h-10 rounded-xl bg-secondary text-white flex items-center justify-center font-bold">
+                        <span class="material-symbols-outlined text-2xl">library_books</span>
+                    </div>
+                    <div>
+                        <div id="totalHeroBadge" class="text-xl font-bold font-mono text-white leading-tight">25</div>
+                        <div class="text-[11px] text-slate-300 font-medium">Publicações</div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 px-4 py-3 rounded-2xl flex items-center gap-3 shadow-lg">
+                    <div class="w-10 h-10 rounded-xl bg-theme-mulheres text-white flex items-center justify-center font-bold">
+                        <span class="material-symbols-outlined text-2xl">hub</span>
+                    </div>
+                    <div>
+                        <div id="totalNucleosBadge" class="text-xl font-bold font-mono text-white leading-tight">11</div>
+                        <div class="text-[11px] text-slate-300 font-medium">Núcleos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Layout Container -->
+    <div class="flex flex-1 max-w-container-max mx-auto w-full relative">
+
+        <!-- Sidebar Filters -->
+        <aside class="bg-white text-primary w-full lg:w-sidebar-width border-r border-outline-variant flex flex-col lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] p-6 z-40 overflow-y-auto shrink-0 shadow-xs rounded-r-2xl lg:my-4">
+            <div class="mb-6 flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-title-md font-bold text-on-surface">Filtros</h2>
+                    <p class="text-on-surface-variant text-xs mt-0.5">Refinar publicações do catálogo</p>
+                </div>
+                <button id="btnLimparSidebar" class="text-xs font-semibold text-secondary hover:underline cursor-pointer">
+                    Limpar
+                </button>
+            </div>
+
+            <nav class="flex-1 space-y-4">
+                <!-- Botão Ver Todas -->
+                <button id="btnTodasPesquisas" class="w-full text-secondary font-semibold border-l-4 border-secondary pl-3 pr-2 bg-surface-container-low flex items-center py-2.5 hover:bg-surface-container-high transition-all rounded-r-lg text-sm text-left">
+                    <span class="material-symbols-outlined mr-2.5 text-lg">library_books</span>
+                    <span>Todas as Publicações</span>
+                    <span id="totalBadge" class="ml-auto text-xs opacity-75 font-mono font-bold bg-white px-2 py-0.5 rounded-full border border-outline-variant"></span>
+                </button>
+
+                <!-- Núcleos -->
+                <details class="group border-b border-outline-variant/60 pb-3" open>
+                    <summary class="flex items-center justify-between py-2 text-on-surface hover:text-secondary cursor-pointer transition-colors font-label-md text-sm select-none">
+                        <div class="flex items-center">
+                            <span class="material-symbols-outlined mr-2.5 text-base text-secondary">hub</span>
+                            <span class="font-semibold">Núcleos / Solicitantes</span>
+                        </div>
+                        <span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div id="listaNucleos" class="pl-2 pr-1 py-2 flex flex-col gap-1.5 max-h-52 overflow-y-auto custom-scrollbar">
+                        <!-- Gerado dinamicamente -->
+                    </div>
+                </details>
+
+                <!-- Tipo de Material -->
+                <details class="group border-b border-outline-variant/60 pb-3" open>
+                    <summary class="flex items-center justify-between py-2 text-on-surface hover:text-secondary cursor-pointer transition-colors font-label-md text-sm select-none">
+                        <div class="flex items-center">
+                            <span class="material-symbols-outlined mr-2.5 text-base text-secondary">description</span>
+                            <span class="font-semibold">Tipo de Material</span>
+                        </div>
+                        <span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div id="listaTipos" class="pl-2 pr-1 py-2 flex flex-col gap-1.5">
+                        <!-- Gerado dinamicamente -->
+                    </div>
+                </details>
+
+                <!-- Ano de Publicação -->
+                <details class="group border-b border-outline-variant/60 pb-3" open>
+                    <summary class="flex items-center justify-between py-2 text-on-surface hover:text-secondary cursor-pointer transition-colors font-label-md text-sm select-none">
+                        <div class="flex items-center">
+                            <span class="material-symbols-outlined mr-2.5 text-base text-secondary">calendar_today</span>
+                            <span class="font-semibold">Ano de Publicação</span>
+                        </div>
+                        <span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div id="listaAnos" class="pl-2 pr-1 py-2 flex flex-col gap-1.5 max-h-40 overflow-y-auto custom-scrollbar">
+                        <!-- Gerado dinamicamente -->
+                    </div>
+                </details>
+
+                <!-- Tags Principais -->
+                <details class="group pb-3" open>
+                    <summary class="flex items-center justify-between py-2 text-on-surface hover:text-secondary cursor-pointer transition-colors font-label-md text-sm select-none">
+                        <div class="flex items-center">
+                            <span class="material-symbols-outlined mr-2.5 text-base text-secondary">sell</span>
+                            <span class="font-semibold">Tags Populares</span>
+                        </div>
+                        <span class="material-symbols-outlined text-base transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div id="listaTagsSidebar" class="pl-1 pr-1 py-2 flex flex-wrap gap-1.5 max-h-48 overflow-y-auto custom-scrollbar">
+                        <!-- Gerado dinamicamente -->
+                    </div>
+                </details>
+            </nav>
+
+            <div class="mt-4 pt-4 border-t border-outline-variant">
+                <button id="btnLimpar" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-surface-container hover:bg-red-50 hover:text-red-700 text-on-surface-variant font-label-md text-sm rounded-xl transition-all font-semibold">
+                    <span class="material-symbols-outlined text-base">filter_alt_off</span> Limpar Todos os Filtros
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4 sm:p-8 lg:p-10 w-full min-w-0 pb-24">
+
+            <!-- Search & Header Section -->
+            <section class="mb-8">
+                <div class="flex items-center justify-between flex-wrap gap-3 mb-2">
+                    <h2 class="text-2xl sm:text-3xl font-headline-lg font-bold text-on-surface">Catálogo de Publicações</h2>
+                    <span id="contadorResultados" class="text-xs sm:text-sm font-semibold text-secondary bg-secondary/10 px-3.5 py-1.5 rounded-full border border-secondary/20 transition-all">
+                        Carregando publicações...
+                    </span>
+                </div>
+                <p class="text-on-surface-variant text-sm sm:text-base mb-6">Explore cartilhas, folders, revistas e materiais de apoio da Defensoria Pública.</p>
+
+                <div class="flex flex-col sm:flex-row gap-3 items-stretch">
+                    <!-- Search Input -->
+                    <div class="relative flex-1">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-xl">search</span>
+                        <input
+                            id="busca"
+                            type="text"
+                            placeholder="Buscar por título, tema, palavra-chave ou núcleo..."
+                            class="w-full pl-12 pr-10 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-sm sm:text-base text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all shadow-xs placeholder:text-on-surface-variant/70"
+                        >
+                        <button id="btnLimparBusca" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface p-1 cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">close</span>
+                        </button>
+                    </div>
+
+                    <!-- Sort Dropdown -->
+                    <div class="flex items-center">
+                        <select
+                            id="ordenacao"
+                            class="w-full sm:w-auto bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3.5 text-sm font-label-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 shadow-xs cursor-pointer"
+                        >
+                            <option value="az">Título (A → Z)</option>
+                            <option value="za">Título (Z → A)</option>
+                            <option value="data-desc">Mais Recentes</option>
+                            <option value="data-asc">Mais Antigos</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Filter Chips -->
+            <section id="secaoFiltrosAtivos" class="mb-6 hidden">
+                <div class="flex items-center gap-2 flex-wrap bg-surface-container-low p-3 rounded-xl border border-outline-variant/60">
+                    <span class="text-xs font-semibold text-on-surface-variant flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">tune</span> Filtros ativos:
+                    </span>
+                    <div id="filtrosAtivos" class="flex flex-wrap gap-1.5"></div>
+                    <button id="btnLimparChips" class="text-xs text-secondary hover:underline ml-auto font-semibold cursor-pointer">
+                        Limpar todos
+                    </button>
+                </div>
+            </section>
+
+            <!-- Themes / Highlights Section -->
+            <section class="mb-10">
+                <h3 class="text-lg font-title-md font-semibold text-on-surface mb-3.5 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-secondary text-xl">local_fire_department</span>
+                    <span>Temas em Destaque</span>
+                </h3>
+                <div id="temasPopulares" class="flex flex-wrap gap-2.5">
+                    <!-- Gerado dinamicamente -->
+                </div>
+            </section>
+
+            <!-- Publication Grid -->
+            <section>
+                <div id="catalogo" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Cards renderizados dinamicamente via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="hidden text-center py-16 px-4 bg-surface-container-lowest rounded-2xl border border-outline-variant/60 mt-4 shadow-xs">
+                    <span class="material-symbols-outlined text-5xl text-outline mb-3">search_off</span>
+                    <h4 class="text-lg font-bold text-on-surface mb-1">Nenhuma publicação encontrada</h4>
+                    <p class="text-sm text-on-surface-variant max-w-md mx-auto mb-4">Tente buscar por outros termos ou remova alguns filtros aplicados.</p>
+                    <button id="btnResetarBusca" class="px-5 py-2.5 bg-secondary text-white rounded-xl text-sm font-label-md hover:bg-secondary/90 transition-colors shadow-xs font-semibold">
+                        Ver todas as publicações
+                    </button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="modalPdf" class="fixed inset-0 bg-black/75 z-[9999] hidden items-center justify-center p-2 sm:p-6 backdrop-blur-sm transition-all duration-300">
+        <div class="bg-surface-container-lowest w-full max-w-5xl h-[92vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col relative border border-outline-variant">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-outline-variant bg-surface-container-low">
+                <div class="flex items-center gap-3 overflow-hidden">
+                    <span class="material-symbols-outlined text-secondary text-2xl">picture_as_pdf</span>
+                    <h3 id="modalPdfTitulo" class="font-semibold text-sm sm:text-base text-on-surface truncate">Visualização do Documento</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a
+                        id="modalPdfDownload"
+                        href="#"
+                        target="_blank"
+                        download
+                        class="p-2 text-on-surface-variant hover:text-secondary rounded-lg hover:bg-surface-container transition-colors"
+                        title="Baixar PDF"
+                    >
+                        <span class="material-symbols-outlined text-xl">download</span>
+                    </a>
+                    <button
+                        id="fecharModal"
+                        class="p-2 text-on-surface-variant hover:text-red-600 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
+                        title="Fechar"
+                    >
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Iframe -->
+            <div class="flex-1 bg-surface-dim relative">
+                <iframe
+                    id="pdfFrame"
+                    title="Visualização do PDF"
+                    class="w-full h-full border-none"
+                    src=""
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed right-6 bottom-6 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-xl flex items-center gap-2.5 text-sm font-medium z-[10000] pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
+        <span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+        <span id="toastMensagem">Link copiado com sucesso!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
