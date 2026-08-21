@@ -696,12 +696,15 @@ function renderizar() {
    MODAL PDF
    ========================================= */
 function abrirPdf(url, titulo) {
-    if (url.toLowerCase().endsWith('.zip')) {
+    if (!url.toLowerCase().endsWith('.pdf')) {
         const link = document.createElement('a');
         link.href = url;
-        link.download = '';
+        link.target = '_blank';
+        if (url.toLowerCase().endsWith('.zip')) {
+            link.download = '';
+        }
         link.click();
-        mostrarToast("Iniciando download do arquivo (.zip)...");
+        mostrarToast("Iniciando download do arquivo...");
         return;
     }
     modalPdfTitulo.textContent = titulo || "Visualização do Documento";
