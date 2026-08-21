@@ -461,57 +461,48 @@ function popularFiltrosSidebar() {
 /* =========================================
    TEMAS POPULARES / DESTAQUES
    ========================================= */
-const destaquesCatalogo = [
-    { label: "direitos das mulheres", termo: "direitos das mulheres", tema: "mulheres" },
-    { label: "racismo", termo: "racismo", tema: "habitacao" },
-    { label: "direitos humanos", termo: "direitos humanos", tema: "direitos-humanos" },
-    { label: "infância", termo: "infância", tema: "infancia" },
-    { label: "juventude", termo: "juventude", tema: "infancia" },
-    { label: "violência doméstica", termo: "violência doméstica", tema: "mulheres" },
-    { label: "golpe", termo: "golpe", tema: "consumidor" },
-    { label: "discriminação", termo: "discriminação", tema: "direitos-humanos" }
-];
-
-function contarTermo(termo) {
-    const tNorm = normalizar(termo);
-    return materiais.filter(item => {
-        const texto = normalizar(`${item.titulo} ${item.tipo} ${item.nucleo} ${(item.tags || []).join(" ")}`);
-        return texto.includes(tNorm);
-    }).length;
-}
-
 function criarTemasPopulares() {
     temasPopularesContainer.innerHTML = "";
 
-    // Calcula a quantidade para cada termo em destaque
-    const destaquesComQuantidade = destaquesCatalogo.map(item => ({
-        ...item,
-        quantidade: contarTermo(item.termo)
-    }));
+    // Contar a quantidade de materiais para cada tema presente em dados.json
+    const contagemTemas = {};
+    materiais.forEach(item => {
+        if (item.temas) {
+            item.temas.forEach(t => {
+                const temaLimpo = t.trim();
+                if (temaLimpo) {
+                    contagemTemas[temaLimpo] = (contagemTemas[temaLimpo] || 0) + 1;
+                }
+            });
+        }
+    });
 
-    // Ordena em ordem decrescente de quantidade e limita a no máximo 5 itens
-    const topDestaques = destaquesComQuantidade
-        .sort((a, b) => b.quantidade - a.quantidade)
+    // Ordenar decrescente e pegar os 5 principais
+    const topTemas = Object.entries(contagemTemas)
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "pt-BR"))
         .slice(0, 5);
 
-    topDestaques.forEach(item => {
-        const config = obterConfigTema(item.tema);
+    topTemas.forEach(([temaNome, qtd]) => {
+        const config = obterConfigTema(temaNome);
 
         const button = document.createElement("button");
-        button.className = `flex items-center px-3.5 py-1.5 border rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shadow-2xs ${config.highlight}`;
+        button.className = `tema-destaque-btn flex items-center px-3.5 py-1.5 border rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shadow-2xs ${config.highlight}`;
+        button.dataset.tema = temaNome;
         button.innerHTML = `
-            <span class="mr-2">${item.label}</span>
-            <span class="px-2 py-0.5 rounded-full text-xs font-mono font-bold ${config.countBadge}">
-                ${item.quantidade}
+            <span class="mr-2">${temaNome}</span>
+            <span class="count-badge px-2 py-0.5 rounded-full text-xs font-mono font-bold ${config.countBadge}">
+                ${qtd}
             </span>
         `;
 
         button.addEventListener("click", () => {
-            buscaInput.value = item.termo;
-            estadoFiltros.busca = item.termo;
-            btnLimparBusca.classList.remove("hidden");
+            if (estadoFiltros.temas.has(temaNome)) {
+                estadoFiltros.temas.delete(temaNome);
+            } else {
+                estadoFiltros.temas.add(temaNome);
+            }
+            sincronizarCheckboxes();
             renderizar();
-            buscaInput.focus();
         });
 
         temasPopularesContainer.appendChild(button);
@@ -727,6 +718,25 @@ function sincronizarCheckboxes() {
         } else {
             btn.classList.add("bg-surface-container", "text-on-surface-variant");
             btn.classList.remove("bg-secondary", "text-white");
+        }
+    });
+
+    // Sincroniza os botões de temas em destaque
+    document.querySelectorAll(".tema-destaque-btn").forEach(btn => {
+        const tema = btn.dataset.tema;
+        const config = obterConfigTema(tema);
+        const countBadge = btn.querySelector(".count-badge");
+        
+        if (estadoFiltros.temas.has(tema)) {
+            // Estado ativo: fundo sólido do tema correspondente
+            let borderClass = config.border.split(" ")[0].replace("/40", "");
+            btn.className = `tema-destaque-btn flex items-center px-3.5 py-1.5 border ${borderClass} rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shadow-2xs ${config.badge}`;
+            const isTextBlack = config.badge.includes("text-black");
+            countBadge.className = `count-badge px-2 py-0.5 rounded-full text-xs font-mono font-bold ${isTextBlack ? 'bg-black/10 text-black' : 'bg-white/20 text-white'}`;
+        } else {
+            // Estado inativo: estilo de destaque suave
+            btn.className = `tema-destaque-btn flex items-center px-3.5 py-1.5 border rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shadow-2xs ${config.highlight}`;
+            countBadge.className = `count-badge px-2 py-0.5 rounded-full text-xs font-mono font-bold ${config.countBadge}`;
         }
     });
 }
