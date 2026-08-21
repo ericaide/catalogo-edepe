@@ -12,3 +12,4 @@
 
 # Logs
 *.log
+.agents/mcp_config.json
