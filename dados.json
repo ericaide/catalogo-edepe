@@ -14,7 +14,10 @@
       "juventude"
     ],
     "capa": "imgs/capa_cartilha_abordagemPolicial_28out25.jpg",
-    "arquivo": "arquivos/cartilha_abordagemPolicial_28out25.pdf"
+    "arquivo": "arquivos/cartilha_abordagemPolicial_28out25.pdf",
+    "temas": [
+      "direitos humanos"
+    ]
   },
   {
     "id": "bens-imoveis-mulheres",
@@ -33,7 +36,11 @@
       "propriedade"
     ],
     "capa": "imgs/capa_cartilha_bensImoveis_01out25.jpg",
-    "arquivo": "arquivos/cartilha_bensImoveis_01out25.pdf"
+    "arquivo": "arquivos/cartilha_bensImoveis_01out25.pdf",
+    "temas": [
+      "habitação",
+      "mulheres"
+    ]
   },
   {
     "id": "educacao-escolar-quilombola",
@@ -49,7 +56,11 @@
       "infância"
     ],
     "capa": "imgs/capa_cartilha_educacaoQuilombola13fev25.jpg",
-    "arquivo": "arquivos/cartilha_educacaoQuilombola13fev25.pdf"
+    "arquivo": "arquivos/cartilha_educacaoQuilombola13fev25.pdf",
+    "temas": [
+      "comunidades tradicionais",
+      "educação"
+    ]
   },
   {
     "id": "guia-rapido-direitos-das-mulheres",
@@ -70,7 +81,10 @@
       "violência obstétrica"
     ],
     "capa": "imgs/capa_cartilha_guiaRapidoMulheres_26fev25.jpg",
-    "arquivo": "arquivos/cartilha_guiaRapidoMulheres_26fev25.pdf"
+    "arquivo": "arquivos/cartilha_guiaRapidoMulheres_26fev25.pdf",
+    "temas": [
+      "mulheres"
+    ]
   },
   {
     "id": "discriminacao-lgbtqiapn",
@@ -86,7 +100,10 @@
       "homofobia"
     ],
     "capa": "imgs/capa_cartilha_LGBTQ_02dez25.jpg",
-    "arquivo": "arquivos/cartilha_LGBTQ_02dez25.pdf"
+    "arquivo": "arquivos/cartilha_LGBTQ_02dez25.pdf",
+    "temas": [
+      "diversidade"
+    ]
   },
   {
     "id": "lei-maria-da-penha",
@@ -103,7 +120,10 @@
       "casa abrigo"
     ],
     "capa": "imgs/capa_cartilha_mariaPenha_11set2025jpg.jpg",
-    "arquivo": "arquivos/cartilha_mariaPenha_11set2025.pdf"
+    "arquivo": "arquivos/cartilha_mariaPenha_11set2025.pdf",
+    "temas": [
+      "mulheres"
+    ]
   },
   {
     "id": "quesito-raca-cor",
@@ -121,7 +141,10 @@
       "tratamento de dados"
     ],
     "capa": "imgs/capa_cartilha_racaCor18mar26.jpg",
-    "arquivo": "arquivos/cartilha_racaCor18mar26.pdf"
+    "arquivo": "arquivos/cartilha_racaCor18mar26.pdf",
+    "temas": [
+      "raça"
+    ]
   },
   {
     "id": "meu-nome-meu-direito",
@@ -139,7 +162,10 @@
       "retificação"
     ],
     "capa": "imgs/capa_cartilha_retificaNome22jan26.jpg",
-    "arquivo": "arquivos/cartilha_retificaNome22jan26.pdf"
+    "arquivo": "arquivos/cartilha_retificaNome22jan26.pdf",
+    "temas": [
+      "diversidade"
+    ]
   },
   {
     "id": "saude-mulheres-negras",
@@ -159,7 +185,12 @@
       "população"
     ],
     "capa": "imgs/capa_cartilha_saudeMulheresNegras_11fev25.jpg",
-    "arquivo": "arquivos/cartilha_saudeMulheresNegras_11fev25.pdf"
+    "arquivo": "arquivos/cartilha_saudeMulheresNegras_11fev25.pdf",
+    "temas": [
+      "mulheres",
+      "raça",
+      "saúde"
+    ]
   },
   {
     "id": "saude-racismo-profissionais",
@@ -179,7 +210,12 @@
       "profissionais de saúde"
     ],
     "capa": "imgs/capa_cartilha_saudeMulheresRacismo_11fev25.jpg",
-    "arquivo": "arquivos/cartilha_saudeMulheresRacismo_11fev25.pdf"
+    "arquivo": "arquivos/cartilha_saudeMulheresRacismo_11fev25.pdf",
+    "temas": [
+      "mulheres",
+      "raça",
+      "saúde"
+    ]
   },
   {
     "id": "uso-abusivo-drogas",
@@ -196,7 +232,11 @@
       "tratamento"
     ],
     "capa": "imgs/capa_cartilha_usoDrogas_30mar26.jpg",
-    "arquivo": "arquivos/cartilha_usoDrogas_30mar26.pdf"
+    "arquivo": "arquivos/cartilha_usoDrogas_30mar26.pdf",
+    "temas": [
+      "direitos humanos",
+      "saúde"
+    ]
   },
   {
     "id": "calendario-direitos-humanos-2026",
@@ -212,7 +252,10 @@
       "2026"
     ],
     "capa": "imgs/capa_cartilhaA5_calendarioDH_10abr.jpg",
-    "arquivo": "arquivos/cartilhaA5_calendarioDH_10abr.pdf"
+    "arquivo": "arquivos/cartilhaA5_calendarioDH_10abr.pdf",
+    "temas": [
+      "direitos humanos"
+    ]
   },
   {
     "id": "bullying-cyberbullying",
@@ -228,7 +271,10 @@
       "cultura de paz"
     ],
     "capa": "imgs/capa_folder_bullying_28ago25.png",
-    "arquivo": "arquivos/folder_bullying_28ago25.pdf"
+    "arquivo": "arquivos/folder_bullying_28ago25.pdf",
+    "temas": [
+      "juventude"
+    ]
   },
   {
     "id": "chega-de-assedio",
@@ -246,7 +292,10 @@
       "importunação"
     ],
     "capa": "imgs/capa_folder_chegaAssedio05fev25.png",
-    "arquivo": "arquivos/folder_chegaAssedio05fev25.pdf"
+    "arquivo": "arquivos/folder_chegaAssedio05fev25.pdf",
+    "temas": [
+      "mulheres"
+    ]
   },
   {
     "id": "combate-discriminacao-racial",
@@ -263,7 +312,10 @@
       "racismo institucional"
     ],
     "capa": "imgs/capa_folder_combateDiscriminacaoRacial_27abr26.png",
-    "arquivo": "arquivos/folder_combateDiscriminacaoRacial_27abr26.pdf"
+    "arquivo": "arquivos/folder_combateDiscriminacaoRacial_27abr26.pdf",
+    "temas": [
+      "raça"
+    ]
   },
   {
     "id": "cuidado-e-golpe",
@@ -282,7 +334,10 @@
       "leilão"
     ],
     "capa": "imgs/capa_folder_cuidadoGolpe_6fev26.png",
-    "arquivo": "arquivos/folder_cuidadoGolpe_6fev26.pdf"
+    "arquivo": "arquivos/folder_cuidadoGolpe_6fev26.pdf",
+    "temas": [
+      "consumidor"
+    ]
   },
   {
     "id": "liberdade-religiosa",
@@ -298,7 +353,10 @@
       "preconceito"
     ],
     "capa": "imgs/capa_folder_liberdadeReligiosa05fev25.png",
-    "arquivo": "arquivos/folder_liberdadeReligiosa05fev25.pdf"
+    "arquivo": "arquivos/folder_liberdadeReligiosa05fev25.pdf",
+    "temas": [
+      "liberdade religiosa"
+    ]
   },
   {
     "id": "medida-protetiva",
@@ -313,7 +371,10 @@
       "medida protetiva de urgência"
     ],
     "capa": "imgs/capa_folder_mpu_20jul26.png",
-    "arquivo": "arquivos/folder_mpu_20jul26.pdf"
+    "arquivo": "arquivos/folder_mpu_20jul26.pdf",
+    "temas": [
+      "criminal"
+    ]
   },
   {
     "id": "mulher-negra-saude-folder",
@@ -329,7 +390,12 @@
       "doenças"
     ],
     "capa": "imgs/capa_folder_mulherNegraSaude14fev25.png",
-    "arquivo": "arquivos/folder_mulherNegraSaude14fev25.pdf"
+    "arquivo": "arquivos/folder_mulherNegraSaude14fev25.pdf",
+    "temas": [
+      "mulheres",
+      "raça",
+      "saúde"
+    ]
   },
   {
     "id": "folder-nupir",
@@ -345,7 +411,11 @@
       "preconceito"
     ],
     "capa": "imgs/capa_folder_nupir_7fev25.png",
-    "arquivo": "arquivos/folder_nupir_7fev25.pdf"
+    "arquivo": "arquivos/folder_nupir_7fev25.pdf",
+    "temas": [
+      "igualdade racial",
+      "comunidades tradicionais"
+    ]
   },
   {
     "id": "programa-pode-entrar",
@@ -364,7 +434,11 @@
       "violência doméstica"
     ],
     "capa": "imgs/capa_folder_podeEntrar_bensImoveis30jan25.png",
-    "arquivo": "arquivos/folder_podeEntrar_bensImoveis30jan25.pdf"
+    "arquivo": "arquivos/folder_podeEntrar_bensImoveis30jan25.pdf",
+    "temas": [
+      "habitação",
+      "mulheres"
+    ]
   },
   {
     "id": "carta-nacional-principios",
@@ -383,7 +457,11 @@
       "participação social"
     ],
     "capa": "imgs/capa_revistaA4_cartaNacionalPrincipios_10set25.jpg",
-    "arquivo": "arquivos/revistaA4_cartaNacionalPrincipios_10set25.pdf"
+    "arquivo": "arquivos/revistaA4_cartaNacionalPrincipios_10set25.pdf",
+    "temas": [
+      "mulheres",
+      "raça"
+    ]
   },
   {
     "id": "destituicao-poder-familiar",
@@ -402,7 +480,11 @@
       "participação social"
     ],
     "capa": "imgs/capa_revistaA4_poderFamiliar_15jul26.jpg",
-    "arquivo": "arquivos/revistaA4_poderFamiliar_15jul26.pdf"
+    "arquivo": "arquivos/revistaA4_poderFamiliar_15jul26.pdf",
+    "temas": [
+      "família",
+      "infância"
+    ]
   },
   {
     "id": "jovens-defensores-populares",
@@ -424,7 +506,11 @@
       "liberdade"
     ],
     "capa": "imgs/capa_jovens_defensores_18set24.jpg",
-    "arquivo": "https://www.defensoria.sp.def.br/documents/d/guest/jovens_defensores_18set24"
+    "arquivo": "https://www.defensoria.sp.def.br/documents/d/guest/jovens_defensores_18set24",
+    "temas": [
+      "juventude",
+      "defensores populares"
+    ]
   },
   {
     "id": "defensoras-populares",
@@ -444,6 +530,10 @@
       "machismo"
     ],
     "capa": "imgs/capa_revistaA4_defensorasPopulares_13jul23.jpg",
-    "arquivo": "arquivos/revistaA4_defensorasPopulares_13jul23.pdf"
+    "arquivo": "arquivos/revistaA4_defensorasPopulares_13jul23.pdf",
+    "temas": [
+      "mulheres",
+      "defensores populares"
+    ]
   }
 ]

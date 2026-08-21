@@ -8,6 +8,7 @@ let materiais = [];
 const estadoFiltros = {
     busca: "",
     nucleos: new Set(),
+    temas: new Set(),
     tipos: new Set(),
     anos: new Set(),
     tags: new Set(),
@@ -38,6 +39,7 @@ const btnResetarBusca = document.getElementById("btnResetarBusca");
 
 // Sidebar Lists
 const listaNucleos = document.getElementById("listaNucleos");
+const listaTemas = document.getElementById("listaTemas");
 const listaTipos = document.getElementById("listaTipos");
 const listaAnos = document.getElementById("listaAnos");
 const listaTagsSidebar = document.getElementById("listaTagsSidebar");
@@ -52,6 +54,9 @@ const fecharModal = document.getElementById("fecharModal");
 // Toast
 const toast = document.getElementById("toast");
 const toastMensagem = document.getElementById("toastMensagem");
+
+// Botão Voltar ao Topo
+const btnBackToTop = document.getElementById("btnBackToTop");
 
 /* =========================================
    NORMALIZAÇÃO DE TEXTO
@@ -122,76 +127,102 @@ function renderizarCollageHeader() {
 /* =========================================
    MAPAS DE ESTILO E TEMAS (STITCH TOKENS)
    ========================================= */
-const temaConfig = {
-    "mulheres": {
-        nome: "Mulheres",
-        border: "border-theme-mulheres/40 hover:border-theme-mulheres",
-        badge: "bg-theme-mulheres text-white",
-        highlight: "bg-theme-mulheres/10 text-[#a7529a] border-theme-mulheres hover:bg-theme-mulheres/20",
-        countBadge: "bg-theme-mulheres/20 text-[#a7529a]"
-    },
-    "habitacao": {
-        nome: "Habitação e Raça",
-        border: "border-theme-habitacao/40 hover:border-theme-habitacao",
-        badge: "bg-theme-habitacao text-white",
-        highlight: "bg-theme-habitacao/10 text-[#804e20] border-theme-habitacao hover:bg-theme-habitacao/20",
-        countBadge: "bg-theme-habitacao/20 text-[#804e20]"
-    },
-    "direitos-humanos": {
-        nome: "Direitos Humanos",
-        border: "border-theme-direitos/40 hover:border-theme-direitos",
-        badge: "bg-theme-direitos text-white",
-        highlight: "bg-theme-direitos/10 text-[#3ca4bd] border-theme-direitos hover:bg-theme-direitos/20",
-        countBadge: "bg-theme-direitos/20 text-[#3ca4bd]"
-    },
-    "infancia": {
-        nome: "Infância e Juventude",
-        border: "border-theme-infancia/40 hover:border-theme-infancia",
-        badge: "bg-theme-infancia text-black font-semibold",
-        highlight: "bg-theme-infancia/10 text-[#a37817] border-theme-infancia hover:bg-theme-infancia/20",
-        countBadge: "bg-theme-infancia/30 text-[#a37817]"
-    },
-    "consumidor": {
-        nome: "Consumidor",
-        border: "border-theme-consumidor/40 hover:border-theme-consumidor",
-        badge: "bg-theme-consumidor text-white",
-        highlight: "bg-theme-consumidor/10 text-[#dd7129] border-theme-consumidor hover:bg-theme-consumidor/20",
-        countBadge: "bg-theme-consumidor/20 text-[#dd7129]"
-    },
-    "idoso": {
-        nome: "Pessoa Idosa / PCD",
-        border: "border-theme-idoso/40 hover:border-theme-idoso",
-        badge: "bg-theme-idoso text-white",
-        highlight: "bg-theme-idoso/10 text-[#2a3289] border-theme-idoso hover:bg-theme-idoso/20",
-        countBadge: "bg-theme-idoso/20 text-[#2a3289]"
+function obterConfigTema(temaNome) {
+    const nome = normalizar(temaNome);
+    
+    // 1. #a7529a - mulheres, sexualidade, gênero, diversidade
+    if (nome === "mulheres" || nome === "sexualidade" || nome === "genero" || nome === "gênero" || nome === "diversidade") {
+        return {
+            nome: temaNome,
+            border: "border-theme-mulheres/40 hover:border-theme-mulheres",
+            badge: "bg-theme-mulheres text-white",
+            colorClass: "theme-mulheres",
+            highlight: "bg-theme-mulheres/10 text-[#a7529a] border-theme-mulheres hover:bg-theme-mulheres/20",
+            countBadge: "bg-theme-mulheres/20 text-[#a7529a]"
+        };
     }
-};
+    
+    // 2. #804e20 - habitação, raça, cor, comunidades tradicionais
+    if (nome === "habitação" || nome === "habitacao" || nome === "raça" || nome === "raca" || nome === "cor" || nome === "comunidades tradicionais" || nome === "igualdade racial") {
+        return {
+            nome: temaNome,
+            border: "border-theme-habitacao/40 hover:border-theme-habitacao",
+            badge: "bg-theme-habitacao text-white",
+            colorClass: "theme-habitacao",
+            highlight: "bg-theme-habitacao/10 text-[#804e20] border-theme-habitacao hover:bg-theme-habitacao/20",
+            countBadge: "bg-theme-habitacao/20 text-[#804e20]"
+        };
+    }
+    
+    // 3. #3ca4bd - direitos humanos, meio ambiente
+    if (nome === "direitos humanos" || nome === "meio ambiente" || nome === "saúde" || nome === "saude" || nome === "liberdade religiosa" || nome === "defensores populares") {
+        return {
+            nome: temaNome,
+            border: "border-theme-direitos/40 hover:border-theme-direitos",
+            badge: "bg-theme-direitos text-white",
+            colorClass: "theme-direitos",
+            highlight: "bg-theme-direitos/10 text-[#3ca4bd] border-theme-direitos hover:bg-theme-direitos/20",
+            countBadge: "bg-theme-direitos/20 text-[#3ca4bd]"
+        };
+    }
+    
+    // 4. #f2b630 - infância, juventude, família
+    if (nome === "infância" || nome === "infancia" || nome === "juventude" || nome === "família" || nome === "familia" || nome === "educação" || nome === "educacao") {
+        return {
+            nome: temaNome,
+            border: "border-theme-infancia/40 hover:border-theme-infancia",
+            badge: "bg-theme-infancia text-black font-semibold",
+            colorClass: "theme-infancia",
+            highlight: "bg-theme-infancia/10 text-[#a37817] border-theme-infancia hover:bg-theme-infancia/20",
+            countBadge: "bg-theme-infancia/30 text-[#a37817]"
+        };
+    }
+    
+    // 5. #2a3289 - pessoa idosa, deficiência
+    if (nome === "pessoa idosa" || nome === "deficiência" || nome === "deficiencia" || nome === "idoso") {
+        return {
+            nome: temaNome,
+            border: "border-theme-idoso/40 hover:border-theme-idoso",
+            badge: "bg-theme-idoso text-white",
+            colorClass: "theme-idoso",
+            highlight: "bg-theme-idoso/10 text-[#2a3289] border-theme-idoso hover:bg-theme-idoso/20",
+            countBadge: "bg-theme-idoso/20 text-[#2a3289]"
+        };
+    }
+    
+    // 6. #dd7129 - consumidor, criminal
+    if (nome === "consumidor" || nome === "criminal") {
+        return {
+            nome: temaNome,
+            border: "border-theme-consumidor/40 hover:border-theme-consumidor",
+            badge: "bg-theme-consumidor text-white",
+            colorClass: "theme-consumidor",
+            highlight: "bg-theme-consumidor/10 text-[#dd7129] border-theme-consumidor hover:bg-theme-consumidor/20",
+            countBadge: "bg-theme-consumidor/20 text-[#dd7129]"
+        };
+    }
+    
+    // Default fallback
+    return {
+        nome: temaNome,
+        border: "border-outline-variant/40 hover:border-outline",
+        badge: "bg-outline text-white",
+        colorClass: "outline",
+        highlight: "bg-outline/10 text-[#76777d] border-outline hover:bg-outline/20",
+        countBadge: "bg-outline/20 text-[#76777d]"
+    };
+}
 
 function obterInfoTema(item) {
-    const texto = normalizar(`${item.tema || ""} ${item.titulo || ""} ${(item.tags || []).join(" ")}`);
-
-    if (texto.includes("mulher") || texto.includes("genero") || texto.includes("lgbt") || texto.includes("maria da penha")) {
-        return temaConfig["mulheres"];
-    }
-    if (texto.includes("habitac") || texto.includes("imoveis") || texto.includes("posse") || texto.includes("raca") || texto.includes("quilombola") || texto.includes("discriminacao")) {
-        return temaConfig["habitacao"];
-    }
-    if (texto.includes("infancia") || texto.includes("jovem") || texto.includes("juventude") || texto.includes("educacao") || texto.includes("bullying") || texto.includes("familiar")) {
-        return temaConfig["infancia"];
-    }
-    if (texto.includes("consumidor") || texto.includes("golpe") || texto.includes("fraude") || texto.includes("emprestimo")) {
-        return temaConfig["consumidor"];
-    }
-    if (texto.includes("idoso") || texto.includes("deficiencia")) {
-        return temaConfig["idoso"];
-    }
-    return temaConfig["direitos-humanos"];
+    const temas = item.temas || [];
+    const primeiroTema = temas[0] || "direitos humanos";
+    return obterConfigTema(primeiroTema);
 }
 
 function obterIconeTipo(tipo) {
     const t = normalizar(tipo);
     if (t.includes("cartilha")) return "description";
-    if (t.includes("folder")) return "folder";
+    if (t.includes("folder")) return "map";
     if (t.includes("revista")) return "book";
     if (t.includes("material")) return "menu_book";
     return "article";
@@ -218,7 +249,7 @@ function popularFiltrosSidebar() {
 
     if (totalNucleosBadge) totalNucleosBadge.textContent = Object.keys(contagemNucleos).length;
 
-    listaNucleos.innerHTML = Object.entries(contagemNucleos)
+    const nucleosHTML = Object.entries(contagemNucleos)
         .sort((a, b) => a[0].localeCompare(b[0], "pt-BR"))
         .map(([nucleo, qtd]) => `
             <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group">
@@ -233,6 +264,59 @@ function popularFiltrosSidebar() {
             </label>
         `).join("");
 
+    const selectAllNucleosHTML = `
+        <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group font-semibold border-b border-outline-variant/30 pb-1.5 mb-1.5">
+            <input 
+                type="checkbox" 
+                data-select-all="nucleos"
+                class="select-all-checkbox rounded border-outline-variant text-secondary focus:ring-secondary/30 w-4 h-4"
+            >
+            <span class="truncate">Selecionar todos</span>
+        </label>
+    `;
+
+    listaNucleos.innerHTML = selectAllNucleosHTML + nucleosHTML;
+
+    // Temas
+    const contagemTemas = {};
+    materiais.forEach(item => {
+        if (!item.temas) return;
+        item.temas.forEach(t => {
+            const temaLimpo = t.trim();
+            if (temaLimpo) {
+                contagemTemas[temaLimpo] = (contagemTemas[temaLimpo] || 0) + 1;
+            }
+        });
+    });
+
+    const temasHTML = Object.entries(contagemTemas)
+        .sort((a, b) => a[0].localeCompare(b[0], "pt-BR"))
+        .map(([tema, qtd]) => `
+            <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group">
+                <input 
+                    type="checkbox" 
+                    value="${tema}" 
+                    data-tipo-filtro="temas"
+                    class="filtro-checkbox rounded border-outline-variant text-secondary focus:ring-secondary/30 w-4 h-4"
+                >
+                <span class="truncate font-medium">${tema}</span>
+                <span class="opacity-60 ml-auto font-mono text-[11px]">(${qtd})</span>
+            </label>
+        `).join("");
+
+    const selectAllTemasHTML = `
+        <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group font-semibold border-b border-outline-variant/30 pb-1.5 mb-1.5">
+            <input 
+                type="checkbox" 
+                data-select-all="temas"
+                class="select-all-checkbox rounded border-outline-variant text-secondary focus:ring-secondary/30 w-4 h-4"
+            >
+            <span class="truncate">Selecionar todos</span>
+        </label>
+    `;
+
+    listaTemas.innerHTML = selectAllTemasHTML + temasHTML;
+
     // Tipos
     const contagemTipos = {};
     materiais.forEach(item => {
@@ -241,7 +325,7 @@ function popularFiltrosSidebar() {
         }
     });
 
-    listaTipos.innerHTML = Object.entries(contagemTipos)
+    const tiposHTML = Object.entries(contagemTipos)
         .sort((a, b) => b[1] - a[1])
         .map(([tipo, qtd]) => `
             <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group">
@@ -256,6 +340,19 @@ function popularFiltrosSidebar() {
             </label>
         `).join("");
 
+    const selectAllTiposHTML = `
+        <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group font-semibold border-b border-outline-variant/30 pb-1.5 mb-1.5">
+            <input 
+                type="checkbox" 
+                data-select-all="tipos"
+                class="select-all-checkbox rounded border-outline-variant text-secondary focus:ring-secondary/30 w-4 h-4"
+            >
+            <span class="truncate">Selecionar todos</span>
+        </label>
+    `;
+
+    listaTipos.innerHTML = selectAllTiposHTML + tiposHTML;
+
     // Anos
     const contagemAnos = {};
     materiais.forEach(item => {
@@ -265,7 +362,7 @@ function popularFiltrosSidebar() {
         }
     });
 
-    listaAnos.innerHTML = Object.entries(contagemAnos)
+    const anosHTML = Object.entries(contagemAnos)
         .sort((a, b) => b[0] - a[0])
         .map(([ano, qtd]) => `
             <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group">
@@ -280,6 +377,19 @@ function popularFiltrosSidebar() {
             </label>
         `).join("");
 
+    const selectAllAnosHTML = `
+        <label class="flex items-center gap-2.5 text-xs text-on-surface hover:text-secondary cursor-pointer py-1 select-none transition-colors group font-semibold border-b border-outline-variant/30 pb-1.5 mb-1.5">
+            <input 
+                type="checkbox" 
+                data-select-all="anos"
+                class="select-all-checkbox rounded border-outline-variant text-secondary focus:ring-secondary/30 w-4 h-4"
+            >
+            <span class="truncate">Selecionar todos</span>
+        </label>
+    `;
+
+    listaAnos.innerHTML = selectAllAnosHTML + anosHTML;
+
     // Tags mais frequentes
     const contagemTags = {};
     materiais.forEach(item => {
@@ -292,8 +402,7 @@ function popularFiltrosSidebar() {
     });
 
     listaTagsSidebar.innerHTML = Object.entries(contagemTags)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 14)
+        .sort((a, b) => a[0].localeCompare(b[0], "pt-BR"))
         .map(([tag, qtd]) => `
             <button 
                 type="button" 
@@ -305,7 +414,7 @@ function popularFiltrosSidebar() {
             </button>
         `).join("");
 
-    // Event listeners para checkboxes
+    // Event listeners para checkboxes individuais
     document.querySelectorAll(".filtro-checkbox").forEach(cb => {
         cb.addEventListener("change", (e) => {
             const tipo = e.target.dataset.tipoFiltro;
@@ -315,6 +424,28 @@ function popularFiltrosSidebar() {
             } else {
                 estadoFiltros[tipo].delete(valor);
             }
+            sincronizarCheckboxes();
+            renderizar();
+        });
+    });
+
+    // Event listeners para checkboxes "Selecionar todos"
+    document.querySelectorAll(".select-all-checkbox").forEach(cbAll => {
+        cbAll.addEventListener("change", (e) => {
+            const tipo = e.target.dataset.selectAll;
+            const marcado = e.target.checked;
+            const checkboxesGrupo = document.querySelectorAll(`.filtro-checkbox[data-tipo-filtro="${tipo}"]`);
+            
+            checkboxesGrupo.forEach(cb => {
+                const valor = cb.value;
+                if (marcado) {
+                    estadoFiltros[tipo].add(valor);
+                } else {
+                    estadoFiltros[tipo].delete(valor);
+                }
+            });
+            
+            sincronizarCheckboxes();
             renderizar();
         });
     });
@@ -331,14 +462,14 @@ function popularFiltrosSidebar() {
    TEMAS POPULARES / DESTAQUES
    ========================================= */
 const destaquesCatalogo = [
-    { label: "Mulheres e Gênero", termo: "mulheres", tema: "mulheres" },
-    { label: "Habitação e Raça", termo: "habitação", tema: "habitacao" },
-    { label: "Direitos Humanos", termo: "direitos humanos", tema: "direitos-humanos" },
-    { label: "Infância e Juventude", termo: "infância", tema: "infancia" },
-    { label: "Combate ao Racismo", termo: "racismo", tema: "habitacao" },
-    { label: "Violência Doméstica", termo: "violência doméstica", tema: "mulheres" },
-    { label: "Golpes e Fraudes", termo: "golpe", tema: "consumidor" },
-    { label: "Educação em Direitos", termo: "educação", tema: "infancia" }
+    { label: "direitos das mulheres", termo: "direitos das mulheres", tema: "mulheres" },
+    { label: "racismo", termo: "racismo", tema: "habitacao" },
+    { label: "direitos humanos", termo: "direitos humanos", tema: "direitos-humanos" },
+    { label: "infância", termo: "infância", tema: "infancia" },
+    { label: "juventude", termo: "juventude", tema: "infancia" },
+    { label: "violência doméstica", termo: "violência doméstica", tema: "mulheres" },
+    { label: "golpe", termo: "golpe", tema: "consumidor" },
+    { label: "discriminação", termo: "discriminação", tema: "direitos-humanos" }
 ];
 
 function contarTermo(termo) {
@@ -352,16 +483,26 @@ function contarTermo(termo) {
 function criarTemasPopulares() {
     temasPopularesContainer.innerHTML = "";
 
-    destaquesCatalogo.forEach(item => {
-        const quantidade = contarTermo(item.termo);
-        const config = temaConfig[item.tema] || temaConfig["direitos-humanos"];
+    // Calcula a quantidade para cada termo em destaque
+    const destaquesComQuantidade = destaquesCatalogo.map(item => ({
+        ...item,
+        quantidade: contarTermo(item.termo)
+    }));
+
+    // Ordena em ordem decrescente de quantidade e limita a no máximo 5 itens
+    const topDestaques = destaquesComQuantidade
+        .sort((a, b) => b.quantidade - a.quantidade)
+        .slice(0, 5);
+
+    topDestaques.forEach(item => {
+        const config = obterConfigTema(item.tema);
 
         const button = document.createElement("button");
         button.className = `flex items-center px-3.5 py-1.5 border rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 shadow-2xs ${config.highlight}`;
         button.innerHTML = `
             <span class="mr-2">${item.label}</span>
             <span class="px-2 py-0.5 rounded-full text-xs font-mono font-bold ${config.countBadge}">
-                ${quantidade}
+                ${item.quantidade}
             </span>
         `;
 
@@ -392,7 +533,7 @@ function filtrarItens() {
                 item.tipo,
                 item.nucleo,
                 item.data,
-                item.tema,
+                ...(item.temas || []),
                 ...(item.tags || [])
             ].join(" "));
             return texto.includes(buscaNorm);
@@ -405,6 +546,14 @@ function filtrarItens() {
             if (!item.nucleo) return false;
             const nucleosItem = item.nucleo.split(",").map(n => n.trim());
             return Array.from(estadoFiltros.nucleos).some(n => nucleosItem.includes(n));
+        });
+    }
+
+    // Temas
+    if (estadoFiltros.temas.size > 0) {
+        itens = itens.filter(item => {
+            const temasItem = item.temas || [];
+            return Array.from(estadoFiltros.temas).some(t => temasItem.includes(t));
         });
     }
 
@@ -485,6 +634,17 @@ function atualizarFiltrosAtivos() {
         });
     });
 
+    estadoFiltros.temas.forEach(tema => {
+        chips.push({
+            label: `Tema: ${tema}`,
+            remover: () => {
+                estadoFiltros.temas.delete(tema);
+                sincronizarCheckboxes();
+                renderizar();
+            }
+        });
+    });
+
     estadoFiltros.tipos.forEach(tipo => {
         chips.push({
             label: `Tipo: ${tipo}`,
@@ -512,6 +672,7 @@ function atualizarFiltrosAtivos() {
             label: `#${tag}`,
             remover: () => {
                 estadoFiltros.tags.delete(tag);
+                sincronizarCheckboxes();
                 renderizar();
             }
         });
@@ -537,10 +698,36 @@ function atualizarFiltrosAtivos() {
 }
 
 function sincronizarCheckboxes() {
+    // Sincroniza os checkboxes individuais
     document.querySelectorAll(".filtro-checkbox").forEach(cb => {
         const tipo = cb.dataset.tipoFiltro;
         const valor = cb.value;
         cb.checked = estadoFiltros[tipo].has(valor);
+    });
+
+    // Sincroniza os checkboxes "Selecionar todos"
+    document.querySelectorAll(".select-all-checkbox").forEach(cbAll => {
+        const tipo = cbAll.dataset.selectAll;
+        const checkboxesGrupo = document.querySelectorAll(`.filtro-checkbox[data-tipo-filtro="${tipo}"]`);
+        
+        if (checkboxesGrupo.length > 0) {
+            const todosMarcados = Array.from(checkboxesGrupo).every(cb => cb.checked);
+            cbAll.checked = todosMarcados;
+        } else {
+            cbAll.checked = false;
+        }
+    });
+
+    // Sincroniza os botões de tags na sidebar
+    document.querySelectorAll(".tag-sidebar-btn").forEach(btn => {
+        const tag = btn.dataset.tag;
+        if (estadoFiltros.tags.has(tag)) {
+            btn.classList.remove("bg-surface-container", "text-on-surface-variant");
+            btn.classList.add("bg-secondary", "text-white");
+        } else {
+            btn.classList.add("bg-surface-container", "text-on-surface-variant");
+            btn.classList.remove("bg-secondary", "text-white");
+        }
     });
 }
 
@@ -550,6 +737,7 @@ function alternarTag(tag) {
     } else {
         estadoFiltros.tags.add(tag);
     }
+    sincronizarCheckboxes();
     renderizar();
 }
 
@@ -572,12 +760,20 @@ function renderizar() {
     catalogoGrid.innerHTML = "";
 
     itens.forEach(item => {
-        const temaInfo = obterInfoTema(item);
+        const temas = item.temas || [];
+        const primeiroTema = temas[0] || "direitos humanos";
+        const temaInfoPrimeiro = obterConfigTema(primeiroTema);
         const tipoIcone = obterIconeTipo(item.tipo);
 
         const card = document.createElement("article");
         card.id = item.id;
-        card.className = `bg-surface-container-lowest border-2 ${temaInfo.border} rounded-2xl overflow-hidden flex flex-col hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300 group`;
+        card.className = `bg-surface-container-lowest border-2 ${temaInfoPrimeiro.border} rounded-2xl overflow-hidden flex flex-col hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300 group`;
+
+        // Render all theme badges
+        const badgesTemasHTML = temas.map(t => {
+            const config = obterConfigTema(t);
+            return `<span class="${config.badge} px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold shadow-2xs whitespace-nowrap">${config.nome}</span>`;
+        }).join("");
 
         card.innerHTML = `
             <!-- Capa do Documento -->
@@ -594,10 +790,10 @@ function renderizar() {
             <!-- Corpo do Card -->
             <div class="p-5 flex-1 flex flex-col">
                 <!-- Badges de Tipo e Tema -->
-                <div class="flex justify-between items-start mb-3 gap-2">
-                    <span class="${temaInfo.badge} px-2.5 py-0.5 rounded-lg text-xs font-semibold shadow-2xs">
-                        ${temaInfo.nome}
-                    </span>
+                <div class="flex justify-between items-start mb-3 gap-2 flex-wrap">
+                    <div class="flex flex-wrap gap-1.5 max-w-[70%]">
+                        ${badgesTemasHTML}
+                    </div>
                     <span class="text-on-surface-variant text-xs flex items-center font-medium shrink-0 bg-surface-container-low px-2 py-0.5 rounded-md">
                         <span class="material-symbols-outlined text-[15px] mr-1 text-secondary">${tipoIcone}</span>
                         ${item.tipo}
@@ -773,6 +969,7 @@ function limparTodosFiltros() {
     btnLimparBusca.classList.add("hidden");
     estadoFiltros.busca = "";
     estadoFiltros.nucleos.clear();
+    estadoFiltros.temas.clear();
     estadoFiltros.tipos.clear();
     estadoFiltros.anos.clear();
     estadoFiltros.tags.clear();
@@ -829,6 +1026,25 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("hashchange", verificarHashUrl);
+
+// Mostrar/ocultar botão de voltar ao topo ao scrollar
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        btnBackToTop.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
+        btnBackToTop.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+    } else {
+        btnBackToTop.classList.add("opacity-0", "translate-y-10", "pointer-events-none");
+        btnBackToTop.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+    }
+});
+
+// Ação de voltar ao topo
+btnBackToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
 
 /* =========================================
    INICIALIZAÇÃO
