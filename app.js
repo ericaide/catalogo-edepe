@@ -782,12 +782,12 @@ function renderizar() {
         // Render all theme badges
         const badgesTemasHTML = temas.map(t => {
             const config = obterConfigTema(t);
-            return `<span class="${config.badge} px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold shadow-2xs whitespace-nowrap">${config.nome}</span>`;
+            return `<button type="button" class="tema-badge-btn ${config.badge} px-2.5 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold shadow-2xs whitespace-nowrap hover:opacity-90 active:scale-95 transition-all cursor-pointer" data-tema="${t}">${config.nome}</button>`;
         }).join("");
 
         card.innerHTML = `
             <!-- Capa do Documento -->
-            <div class="aspect-[2/1] relative overflow-hidden bg-surface-container-high border-b border-outline-variant flex items-center justify-center p-3">
+            <div class="aspect-[4/3] relative overflow-hidden bg-surface-container-high border-b border-outline-variant flex items-center justify-center p-3">
                 <img
                     src="${item.capa}"
                     alt="${item.titulo}"
@@ -811,7 +811,7 @@ function renderizar() {
                 </div>
 
                 <!-- Título -->
-                <h4 class="text-base sm:text-lg font-bold font-title-md text-on-surface mb-2 leading-snug line-clamp-3 group-hover:text-secondary transition-colors" title="${item.titulo}">
+                <h4 class="text-base sm:text-lg font-bold font-title-md text-on-surface mb-2 leading-[1.15] line-clamp-3 group-hover:text-secondary transition-colors" title="${item.titulo}">
                     ${item.titulo}
                 </h4>
 
@@ -894,6 +894,20 @@ function renderizar() {
             });
         });
 
+        card.querySelectorAll(".tema-badge-btn").forEach(tBadge => {
+            tBadge.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const tema = tBadge.dataset.tema;
+                if (estadoFiltros.temas.has(tema)) {
+                    estadoFiltros.temas.delete(tema);
+                } else {
+                    estadoFiltros.temas.add(tema);
+                }
+                sincronizarCheckboxes();
+                renderizar();
+            });
+        });
+
         catalogoGrid.appendChild(card);
     });
 }
@@ -915,14 +929,23 @@ function abrirPdf(url, titulo) {
     }
     modalPdfTitulo.textContent = titulo || "Visualização do Documento";
     modalPdfDownload.href = url;
-    pdfFrame.src = url;
+    
+    // Atualiza o atributo data do object
+    pdfFrame.setAttribute("data", url);
+    
+    // Atualiza o link do fallback se existir
+    const fallbackLink = document.getElementById("pdfFallbackLink");
+    if (fallbackLink) {
+        fallbackLink.href = url;
+    }
+    
     modalPdf.classList.remove("hidden");
     document.body.style.overflow = "hidden";
 }
 
 function fecharModalPdf() {
     modalPdf.classList.add("hidden");
-    pdfFrame.src = "";
+    pdfFrame.setAttribute("data", "");
     document.body.style.overflow = "";
 }
 

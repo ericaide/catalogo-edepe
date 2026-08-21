@@ -411,9 +411,22 @@
                 </div>
             </div>
 
-            <!-- Modal Iframe -->
-            <div class="flex-1 bg-surface-dim relative">
-                <iframe id="pdfFrame" title="Visualização do PDF" class="w-full h-full border-none" src=""></iframe>
+            <!-- Modal PDF Content -->
+            <div class="flex-1 bg-surface-dim relative h-full">
+                <object id="pdfFrame" class="w-full h-full border-none" type="application/pdf" data="">
+                    <div class="flex flex-col items-center justify-center h-full p-8 text-center text-on-surface-variant bg-surface-container-lowest">
+                        <span class="material-symbols-outlined text-6xl text-red-500 mb-4 font-bold">picture_as_pdf</span>
+                        <h4 class="text-base font-semibold text-on-surface mb-2">Não foi possível exibir o PDF diretamente</h4>
+                        <p class="text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
+                            O seu navegador ou as políticas de segurança locais impedem a exibição de PDFs integrados nesta janela.
+                        </p>
+                        <a id="pdfFallbackLink" href="#" target="_blank"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-white rounded-xl text-sm font-semibold hover:bg-secondary/90 transition-all shadow-xs cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                            Abrir em uma nova guia
+                        </a>
+                    </div>
+                </object>
             </div>
         </div>
     </div>
