@@ -787,7 +787,10 @@ function renderizar() {
 
         card.innerHTML = `
             <!-- Capa do Documento -->
-            <div class="aspect-[4/3] relative overflow-hidden bg-surface-container-high border-b border-outline-variant flex items-center justify-center p-3">
+            <div class="capa-container aspect-[4/3] relative overflow-hidden bg-${temaInfoPrimeiro.colorClass}/10 border-b border-outline-variant flex items-center justify-center p-3 cursor-pointer"
+                 data-arquivo="${item.arquivo}"
+                 data-titulo="${item.titulo}"
+                 title="Visualizar publicação">
                 <img
                     src="${item.capa}"
                     alt="${item.titulo}"
@@ -811,7 +814,7 @@ function renderizar() {
                 </div>
 
                 <!-- Título -->
-                <h4 class="text-base sm:text-lg font-bold font-title-md text-on-surface mb-2 leading-[1.15] line-clamp-3 group-hover:text-secondary transition-colors" title="${item.titulo}">
+                <h4 class="text-base sm:text-lg font-bold font-title-md text-on-surface mb-2 leading-[1.1] line-clamp-3 group-hover:text-secondary transition-colors" title="${item.titulo}">
                     ${item.titulo}
                 </h4>
 
@@ -877,6 +880,11 @@ function renderizar() {
         `;
 
         // Event listeners do card
+        card.querySelector(".capa-container").addEventListener("click", (e) => {
+            const container = e.currentTarget;
+            abrirPdf(container.dataset.arquivo, container.dataset.titulo);
+        });
+
         card.querySelector(".btn-visualizar").addEventListener("click", (e) => {
             const btn = e.currentTarget;
             abrirPdf(btn.dataset.arquivo, btn.dataset.titulo);
